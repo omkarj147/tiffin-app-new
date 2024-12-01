@@ -1,0 +1,402 @@
+.menu-management {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu-management h2 {
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.menu-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  width: 95%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #ff6b6b;
+  box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.1);
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.submit-button,
+.cancel-button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button {
+  background: #ff6b6b;
+  color: white;
+  flex: 2;
+}
+
+.submit-button:hover {
+  background: #ff5252;
+}
+
+.submit-button:disabled {
+  background: #ffadad;
+  cursor: not-allowed;
+}
+
+.cancel-button {
+  background: #f1f1f1;
+  color: #666;
+  flex: 1;
+}
+
+.cancel-button:hover {
+  background: #e1e1e1;
+}
+
+.notification {
+  display: none;
+}
+
+.Toastify__toast {
+  font-family: inherit;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+.Toastify__toast--success {
+  background: #4CAF50;
+  color: white;
+}
+
+.Toastify__toast--error {
+  background: #f44336;
+  color: white;
+}
+
+.Toastify__toast-body {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.Toastify__close-button {
+  color: white;
+  opacity: 0.7;
+}
+
+.Toastify__close-button:hover {
+  opacity: 1;
+}
+
+.Toastify__progress-bar {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.menu-list {
+  margin-top: 3rem;
+}
+
+.menu-list h3 {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.menu-item-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.menu-item-card:hover {
+  transform: translateY(-5px);
+}
+
+.menu-item-card h4 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.menu-item-details {
+  margin-bottom: 1.5rem;
+}
+
+.menu-item-details p {
+  margin: 0.5rem 0;
+  color: #666;
+}
+
+.menu-item-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.edit-button,
+.delete-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button {
+  background: #4CAF50;
+  color: white;
+}
+
+.edit-button:hover {
+  background: #45a049;
+}
+
+.delete-button {
+  background: #f44336;
+  color: white;
+}
+
+.delete-button:hover {
+  background: #da190b;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-management {
+    padding: 1rem;
+  }
+
+  .menu-form {
+    padding: 1.5rem;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .submit-button,
+  .cancel-button {
+    width: 100%;
+  }
+}
+
+/* Grid view for larger screens */
+@media screen and (min-width: 768px) {
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .menu-item-card {
+    display: block;
+  }
+}
+
+/* List view for smaller screens */
+@media screen and (max-width: 767px) {
+  .menu-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .menu-item-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-item-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .menu-item-details p {
+    margin: 0;
+  }
+
+  .menu-item-actions {
+    margin-top: 1rem;
+    justify-content: flex-end;
+  }
+}
+
+.menu-items-section {
+  margin-top: 2rem;
+}
+
+.menu-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.menu-item-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.food-type {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.food-type.veg {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.food-type.non-veg {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.item-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.meal-type, .portion-size {
+  background: #f1f3f5;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #495057;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  text-align: right;
+}
+
+.card-actions {
+  padding: 1rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+}
+
+.menu-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.menu-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #2c3e50;
+}
+
+.back-button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  background: #f0f4ff;
+  color: #1a73e8;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: #e4ebff;
+  transform: translateX(-2px);
+}
