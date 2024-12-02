@@ -36,7 +36,7 @@ const ReportsManagement = () => {
       }
 
       const response = await axios.get(
-        'http://localhost:5002/api/reports',
+        'tiffin-app-backend.onrender.com/api/reports',
         {
           params: { date },
           headers: {
