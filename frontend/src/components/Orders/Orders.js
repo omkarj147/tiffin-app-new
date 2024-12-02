@@ -16,15 +16,15 @@ const Orders = () => {
 
     try {
       // Test the base API endpoint
-      await axios.get('tiffin-app-backend.onrender.com/api/test');
+      await axios.get('http://localhost:5002/api/test');
 
       // Test the orders router
-      await axios.get('tiffin-app-backend.onrender.com/api/orders/test');
+      await axios.get('http://localhost:5002/api/orders/test');
 
       const token = localStorage.getItem('token');
       if (!token) throw new Error('User is not authenticated.');
 
-      const response = await axios.get('tiffin-app-backend.onrender.com/api/orders/my-orders', {
+      const response = await axios.get('http://localhost:5002/api/orders/my-orders', {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ const Orders = () => {
       }
 
       // Cancel the order
-      await axios.put(`tiffin-app-backend.onrender.com/api/orders/${orderId}/cancel`, {}, {
+      await axios.put(`http://localhost:5002/api/orders/${orderId}/cancel`, {}, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ const Orders = () => {
       });
 
       // Refund the amount to wallet
-      await axios.post('tiffin-app-backend.onrender.com/api/wallet/add-funds', {
+      await axios.post('http://localhost:5002/api/wallet/add-funds', {
         amount: order.totalAmount,
         description: `Refund for order #${orderId.slice(-8)}`
       }, {

@@ -1,13 +1,14 @@
 import axios from 'axios';
 
-const API_URL = 'https://tiffin-app-backend.onrender.com/api';
+const API_URL = 'http://localhost:5002/api';
 
 // Create axios instance
 const api = axios.create({
     baseURL: API_URL,
     headers: {
         'Content-Type': 'application/json'
-    }
+    },
+    withCredentials: true
 });
 
 // Add token to requests if it exists

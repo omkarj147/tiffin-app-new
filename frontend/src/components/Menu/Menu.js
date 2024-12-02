@@ -35,7 +35,7 @@ const Menu = () => {
   const fetchWalletBalance = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('tiffin-app-backend.onrender.com/api/wallet/balance', {
+      const response = await axios.get('http://localhost:5002/api/wallet/balance', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -60,7 +60,7 @@ const Menu = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem('token');
-      const response = await axios.get('tiffin-app-backend.onrender.com/api/menu', {
+      const response = await axios.get('http://localhost:5002/api/menu', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -136,7 +136,7 @@ const Menu = () => {
       const selectedItem = menuItems.find(item => item._id === orderItems[0].menuItemId);
       
       // Place the order
-      await axios.post('tiffin-app-backend.onrender.com/api/orders', {
+      await axios.post('http://localhost:5002/api/orders', {
         items: orderItems,
         totalAmount,
         mealType: selectedItem.mealType,
@@ -150,7 +150,7 @@ const Menu = () => {
       });
 
       // Deduct amount from wallet
-      await axios.post('tiffin-app-backend.onrender.com/api/wallet/deduct', {
+      await axios.post('http://localhost:5002/api/wallet/deduct', {
         amount: totalAmount,
         description: 'Order payment'
       }, {

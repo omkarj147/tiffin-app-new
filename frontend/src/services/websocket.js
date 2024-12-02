@@ -6,10 +6,10 @@ class WebSocketService {
         this.reconnectTimeout = 3000; // 3 seconds
     }
 
-connect() {
-    try {
-        const wsUrl = 'wss://tiffin-app-backend.onrender.com/ws';
-        this.ws = new WebSocket(wsUrl);
+    connect() {
+        try {
+            const wsUrl = 'ws://localhost:5002/ws';
+            this.ws = new WebSocket(wsUrl);
 
             this.ws.onopen = () => {
                 // WebSocket Connected

@@ -25,7 +25,7 @@ const MenuManagement = () => {
 
   const fetchMenuItems = async () => {
     try {
-      const response = await axios.get('tiffin-app-backend.onrender.com/api/menu');
+      const response = await axios.get('http://localhost:5002/api/menu');
       setMenuItems(response.data);
     } catch (error) {
       toast.error(error.response?.data?.message || 'Error fetching menu items');
@@ -78,10 +78,10 @@ const MenuManagement = () => {
       };
 
       if (editingId) {
-        await axios.put(`tiffin-app-backend.onrender.com/api/menu/${editingId}`, menuItem, config);
+        await axios.put(`http://localhost:5002/api/menu/${editingId}`, menuItem, config);
         toast.success('Menu item updated successfully!');
       } else {
-        await axios.post('tiffin-app-backend.onrender.com/api/menu', menuItem, config);
+        await axios.post('http://localhost:5002/api/menu', menuItem, config);
         toast.success('Menu item added successfully!');
       }
       fetchMenuItems();
@@ -114,7 +114,7 @@ const MenuManagement = () => {
             'Authorization': `Bearer ${token}`
           }
         };
-        await axios.delete(`tiffin-app-backend.onrender.com/api/menu/${id}`, config);
+        await axios.delete(`http://localhost:5002/api/menu/${id}`, config);
         toast.success('Menu item deleted successfully!');
         fetchMenuItems();
       } catch (error) {

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://tiffin-app-backend.onrender.com/menu';
+const API_URL = 'http://localhost:5002/menu';
 
 // Get token from localStorage
 const getAuthHeader = () => {

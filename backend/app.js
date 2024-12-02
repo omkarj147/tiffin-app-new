@@ -18,19 +18,35 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: 'https://dashing-basbousa-1d344e.netlify.app',
+    origin: ['http://localhost:3000', 'https://dashing-basbousa-1d344e.netlify.app'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../frontend/public')));
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+// Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/menu', menuRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/orders', orderRoutes);
+app.use('/api/reports', reportRoutes);
+app.use('/api/seed', seedRoutes);
+app.use('/api/wallet', walletRoutes);
+
+// Serve static files from the React frontend app
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
+});
 
 // Simple favicon response
 app.get('/favicon.ico', (req, res) => {
     res.set('Content-Type', 'image/x-icon');
     res.status(200).send('');
 });
+
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI, {
