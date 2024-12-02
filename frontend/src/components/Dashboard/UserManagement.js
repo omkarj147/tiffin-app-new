@@ -17,7 +17,7 @@ const UserManagement = ({ onBack }) => {
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5002/api/users', {
+      const response = await axios.get('tiffin-app-backend.onrender.com/api/users', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUsers(response.data);
@@ -32,7 +32,7 @@ const UserManagement = ({ onBack }) => {
     try {
       const token = localStorage.getItem('token');
       await axios.put(
-        `http://localhost:5002/api/users/${userId}/status`,
+        `tiffin-app-backend.onrender.com/api/users/${userId}/status`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` }}
       );
@@ -52,7 +52,7 @@ const UserManagement = ({ onBack }) => {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5002/api/users/${userId}`, {
+      await axios.delete(`tiffin-app-backend.onrender.com/api/users/${userId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       

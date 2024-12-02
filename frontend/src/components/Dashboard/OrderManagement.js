@@ -19,7 +19,7 @@ const OrderManagement = ({ onBack }) => {
     try {
       setLoading(true);
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5002/api/orders', {
+      const response = await axios.get('tiffin-app-backend.onrender.com/api/orders', {
         headers: {
           Authorization: `Bearer ${token}`
         },
@@ -40,7 +40,7 @@ const OrderManagement = ({ onBack }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `http://localhost:5002/api/orders/${orderId}/status`,
+        `tiffin-app-backend.onrender.com/api/orders/${orderId}/status`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` }}
       );
@@ -59,7 +59,7 @@ const OrderManagement = ({ onBack }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `http://localhost:5002/api/orders/${orderId}/payment`,
+        `tiffin-app-backend.onrender.com/api/orders/${orderId}/payment`,
         { paymentStatus: newStatus },
         { headers: { Authorization: `Bearer ${token}` }}
       );
@@ -79,7 +79,7 @@ const OrderManagement = ({ onBack }) => {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5002/api/orders/${orderId}`, {
+      await axios.delete(`tiffin-app-backend.onrender.com/api/orders/${orderId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       
