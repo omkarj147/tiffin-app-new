@@ -17,7 +17,7 @@ const MemberDashboard = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5002/api/orders/my-orders', {
+      const response = await axios.get('tiffin-app-backend.onrender.com/api/orders/my-orders', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ const MemberDashboard = () => {
   const fetchWalletBalance = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5002/api/wallet/balance', {
+      const response = await axios.get('tiffin-app-backend.onrender.com/api/wallet/balance', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -52,7 +52,7 @@ const MemberDashboard = () => {
       
       // First cancel the order
       const cancelResponse = await axios.put(
-        `http://localhost:5002/api/orders/${orderId}/cancel`,
+        `tiffin-app-backend.onrender.com/api/orders/${orderId}/cancel`,
         {},
         {
           headers: {
@@ -65,7 +65,7 @@ const MemberDashboard = () => {
       if (cancelResponse.data) {
         // Process refund after successful cancellation
         const refundResponse = await axios.post(
-          'http://localhost:5002/api/wallet/refund',
+          'tiffin-app-backend.onrender.com/api/wallet/refund',
           {
             userId,
             amount,
