@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5002/api';
+const API_URL = 'https://tiffin-app-backend.onrender.com/api';
 
 // Create axios instance
 const api = axios.create({
